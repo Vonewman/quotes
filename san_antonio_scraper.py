@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import scrapy
 from scrapy.selector import Selector
-
 
 class BlogSpider(scrapy.Spider):
     name = 'blogspider'
@@ -20,5 +20,4 @@ class BlogSpider(scrapy.Spider):
                     next_page = False
 
         if next_page:
-            yield scrapy.Request(response.urljoin(next_page_url),
-                                 callback=self.parse)
+            yield scrapy.Request(response.urljoin(next_page_url), callback=self.parse)
